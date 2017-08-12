@@ -82,7 +82,8 @@
 
 > /place/setting : 장소등록 (관리자용)
 >> Requiring Params
-
+    
+    placeid : 장소고유번호
     placename : 장소이름
     Latitude : 위도
     Logitude : 경도
@@ -102,7 +103,6 @@
 
     placeid : 장소 아이디
     decibel : 아두이노에서 받은 소음정도
-    lastconnect : 아두이노와 블루투스 통신이 끊어진 시간 (연도부터 분까지)
     
 >> Return Values
 

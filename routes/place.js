@@ -1,6 +1,6 @@
 module.exports = place
 
-function place(app, db, randomstring) {
+function place(app, db, randomstring, moment) {
     app.post('/place/setting', (req, res)=>{
         var place = new db.Place({
             placeid : req.param('placeid'),
@@ -30,9 +30,10 @@ function place(app, db, randomstring) {
     })
 
     app.post('/place/update', (req, res)=>{
+        var time = moment().format('YYYY년 MM월 DD일 A h시mm분');
         db.Place.update({
             placeid : req.param('placeid')
-        },{$set:{decibel : req.param('decibel'), lastconnect : req.param('lastupdate') }},(err)=>{
+        },{$set:{decibel : req.param('decibel'), lastupdate : time }},(err)=>{
             if(err){
                 console.log('/place/update update Error')
                 throw err
@@ -52,7 +53,7 @@ function place(app, db, randomstring) {
                         console.log(result.placename+' Place Update')
                         res.send(200,{
                             success : true,
-                            message : result.placename+'Place Update'
+                            message : result.placename+' Place Update'
                         })
                     }
                 })
