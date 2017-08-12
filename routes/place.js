@@ -51,6 +51,7 @@ function place(app, db, randomstring, moment) {
                     }
                     else if(result){
                         console.log(result.placename+' Place Update')
+                        console.log(time)
                         res.send(200,{
                             success : true,
                             message : result.placename+' Place Update'
@@ -69,6 +70,7 @@ function place(app, db, randomstring, moment) {
                 throw err
             }
             else if(result[0]!=undefined){
+                console.log(typeof result)
                 console.log('Main Success')
                 res.send(200, result)
             }
