@@ -4,7 +4,7 @@ function auth(app, db) {
     app.post('/auth/register', (req, res)=>{
         var username = req.param('username')
         var id = req.param('id')
-        var password = req.param('password
+        var password = req.param('password')
 
         var user = new db.User({
             username : username,

@@ -11,7 +11,7 @@ var db = mongoose.connect("mongodb://localhost/13th_APPJAM", (err)=>{
 })
 
 var PlaceSchema = new mongoose.Schema({
-    placeid : {
+    placename : {
         type : String
     },
     Latitude : {
