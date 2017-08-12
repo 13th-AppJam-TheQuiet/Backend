@@ -4,6 +4,8 @@
 
 * 모든 요청 : POST , x-www-form-urlencoded 으로 처리
 
+* 통신 링크 : http://soylatte.kr:3000
+
 ## DataBase Schema
 
 > User_Schema
