@@ -2,6 +2,7 @@ var express = require('express')
 var bodyParser = require('body-parser')
 var app = express()
 var randomstring = require('randomstring')
+var moment = require('moment')
 var PORT = process.env.PORT||3000
 var st = process.env.TZ
 var db = require('./mongo/database')
@@ -20,8 +21,7 @@ app.use(bodyParser.urlencoded({
 }))
 
 require('./routes/auth')(app, db)
-//require('./routes/facebook')(app, db)
-require('./routes/place')(app, db, randomstring)
+require('./routes/place')(app, db, randomstring, moment)
 
 
 app.listen(PORT,()=>{

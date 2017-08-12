@@ -35,7 +35,7 @@
      decibel : {
          type : Number
      },
-     lastconnect : {
+     lastupdate : {
          type : String
      }
 

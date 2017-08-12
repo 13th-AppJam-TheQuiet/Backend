@@ -3,12 +3,12 @@ module.exports = place
 function place(app, db, randomstring) {
     app.post('/place/setting', (req, res)=>{
         var place = new db.Place({
-            placeid : randomstring.generate(15),
+            placeid : req.param('placeid'),
             placename : req.param('placename'),
             Latitude : req.param('Latitude'),
             Logitude : req.param('Logitude'),
             decibel : 0,
-            lastconnect: "없음"
+            lastupdate: "없음"
         })
         place.save((err)=>{
             if(err){
@@ -32,7 +32,7 @@ function place(app, db, randomstring) {
     app.post('/place/update', (req, res)=>{
         db.Place.update({
             placeid : req.param('placeid')
-        },{$set:{decibel : req.param('decibel'), lastconnect : req.param('lastconnect') }},(err)=>{
+        },{$set:{decibel : req.param('decibel'), lastconnect : req.param('lastupdate') }},(err)=>{
             if(err){
                 console.log('/place/update update Error')
                 throw err
