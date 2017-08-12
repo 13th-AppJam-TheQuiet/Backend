@@ -115,3 +115,18 @@
     >>> Fail
     
         return HTTP 403 , success : false
+        
+> /place/main : 메인화면에 사용할 좌표 데이터
+>> Requiring Params
+
+    No Param
+    
+>> Return Values
+
+    >>> Success
+        
+        return HTTP 200 , PlaceData(JSON Array)
+        
+    >>> Fail
+        
+        return HTTP 404 , success : false

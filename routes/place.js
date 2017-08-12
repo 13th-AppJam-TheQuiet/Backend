@@ -61,4 +61,24 @@ function place(app, db, randomstring, moment) {
 
         })
     })
+
+    app.post('/place/main', (req, res)=>{
+        db.Place.find({},(err, result)=>{
+            if(err){
+                console.log('/place/main placefind Error')
+                throw err
+            }
+            else if(result[0]!=undefined){
+                console.log('Main Success')
+                res.send(200, result)
+            }
+            else if(result[0]==undefined){
+                console.log('Main Error')
+                res.send(404, {
+                    success : false,
+                    message : "Data Not Founded"
+                })
+            }
+        })
+    })
 }
