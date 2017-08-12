@@ -59,7 +59,13 @@ function auth(app, db) {
             else if(result){
                 if(result.password == password){
                     console.log('User Login : '+result.username)
-                    res.send(200,result)
+                    var data = {
+                        success : true,
+                        username : result.username,
+                        id : result.id,
+                        password : result.password
+                    }
+                    res.send(200, data)
                 }
                 else if(result.password != password){
                     console.log('User Login Fail : '+result.username)
