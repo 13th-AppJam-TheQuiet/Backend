@@ -31,6 +31,7 @@ function place(app, db, randomstring, moment) {
 
     app.post('/place/update', (req, res)=>{
         var time = moment().format('YYYY년 MM월 DD일 A h시mm분');
+        var stime = moment().format('YYYY년 MM월 DD일 A h시 mm분 ss초')
         db.Place.update({
             placeid : req.param('placeid')
         },{$set:{decibel : req.param('decibel'), lastupdate : time }},(err)=>{
@@ -70,7 +71,6 @@ function place(app, db, randomstring, moment) {
                 throw err
             }
             else if(result[0]!=undefined){
-                console.log(typeof result)
                 console.log('Main Success')
                 res.send(200, result)
             }
